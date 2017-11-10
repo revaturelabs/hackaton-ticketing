@@ -5,7 +5,7 @@ services:
 
   # API - TICKET
   api_ticket:
-    image: hackmania/ticket:0.1.0
+    image: hackamania/ticket:0.1.0
     deploy:
       replicas: 1
       restart_policy:
@@ -69,8 +69,8 @@ services:
     networks:
       - hackatonics
   
-  # APP - EUREKA
-  ui_client:
+  # APP - DISCOVERY
+  app_discovery:
     image: hackamania/eureka:0.1.0
     deploy:
       replicas: 1
@@ -79,9 +79,9 @@ services:
     networks:
       - hackatonics
   
-  # APP - ZUUL
-  ui_client:
-    image: hackamania/zuul:0.1.0
+  # APP - GATEWAY
+  app_gateway:
+    image: hackamania/gateway:0.1.0
     deploy:
       replicas: 1
       restart_policy:

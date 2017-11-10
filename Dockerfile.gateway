@@ -1,0 +1,10 @@
+FROM maven:3.5
+
+WORKDIR /app
+COPY ./gateway-service /app
+
+EXPOSE 8765
+
+RUN mvn package
+
+CMD [ "java", "-jar", "target/gateway-service.jar" ]
