@@ -1,0 +1,4 @@
+
+<div class="ticket-container">
+  <app-ticket class="employee-ticket" [ticket]="ticket" (ticketChange)="updateTicket($event, i)" *ngFor="let ticket of tickets; let i = index"></app-ticket>
+</div>
