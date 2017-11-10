@@ -11,6 +11,13 @@ Vagrant.configure("2") do |co|
   co.vm.network "forwarded_port", guest: 8000, host: 8000, host_ip: "127.0.0.1" # api
   co.vm.network "forwarded_port", guest: 9000, host: 9000, host_ip: "127.0.0.1" # dal
 
+co.vm.provider "virtualbox" do |vb|
+  vb.gui = false
+  vb.memory = "2048"
+end
+
+co.vm.synced_folder ".", "/vagrant"
+
 # DEFINITION - PROVISION
   co.vm.provision "shell", path: "Vagrantup.sh"
 end
