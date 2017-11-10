@@ -17,6 +17,9 @@ import {EmployeeComponent} from './components/employee/employee.component';
 import {EmployeeTicketsComponent} from './components/employee/tickets/employee-tickets.component';
 import {NewTicketComponent} from './components/employee/new-ticket/new-ticket.component';
 import {TicketComponent} from './components/ticket/ticket.component';
+import {LoginComponent} from './components/login/login.component';
+import {MentorComponent} from './components/mentor/mentor.component';
+import {AdminComponent} from './components/admin/admin.component';
 
 // services
 import {FlashcardService} from './services/flashcard.service';
@@ -46,6 +49,9 @@ import {appRoutes} from './routes';
     EmployeeTicketsComponent,
     NewTicketComponent,
     TicketComponent,
+    LoginComponent,
+    MentorComponent,
+    AdminComponent,
     
     // pipes
     CompletedPipe,
