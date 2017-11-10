@@ -1,5 +1,7 @@
 package com.hack.controllers;
 
+import java.util.List;
+
 import org.apache.http.HttpStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -20,11 +22,22 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
+	
+	
 	@RequestMapping(value="{id}", produces = {MediaType.APPLICATION_JSON_VALUE}, method = RequestMethod.GET)
 	public @ResponseBody User findById(@PathVariable("id") int id){
-		
 		User u =  userService.getUserById(id);
 		return u;
 	}
+	
+	@RequestMapping("/role/{role}")
+	public @ResponseBody List<User> findUsersByRole(@PathVariable("role") String role){
+		
+		List<User> users = userService.findByRole(role);
+		return users;
+		
+	}
+	
+	
 
 }

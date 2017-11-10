@@ -16,12 +16,39 @@ public class UserService {
 	@Autowired
 	private UserRepository userRepo;
 	
-	public User createOrUpdateUser (User u){
+	@Autowired
+	private RoleService roleService;
+	
+	public User create (User u){
+		User user = userRepo.findByEmail(u.getEmail());
+		if(user.equals(null)){
+			return userRepo.save(u);
+		}
+		else{
+			return null;
+		}
+	}
+	
+	public User update(User u){
 		return userRepo.save(u);
 	}
 	
 	public User getUserById(int id){
 		return userRepo.findById(id);
+	}
+	
+	public List<User> findByFirstName(String fn){
+		return userRepo.findByfirstname(fn);
+	}
+	
+	public List<User> findByLastName(String ln){
+		return userRepo.findBylastname(ln);
+	}
+	
+	public List<User> findByRole(String role){
+		
+		Role r = roleService.getRole(role);
+		return userRepo.findByRole(r);
 	}
 	/*
 	 * public User findById(int id);
