@@ -1,0 +1,6 @@
+FROM maven:3.5
+
+WORKDIR /app
+COPY ./ticket-service /app
+
+CMD [ "java", "app" ]
