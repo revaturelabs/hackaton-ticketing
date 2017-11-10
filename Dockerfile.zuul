@@ -1,0 +1,6 @@
+FROM maven:3.5
+
+WORKDIR /app
+COPY ./zuul /app
+
+CMD [ "java", "jar" ]
