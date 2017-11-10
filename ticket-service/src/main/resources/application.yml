@@ -1,3 +1,4 @@
+#ticket
 server:  
   port: ${PORT:3315}
 
@@ -23,14 +24,14 @@ ribbon:
   eureka:
     enabled: true
     
-spring.datasource.schema: ticket-system
-spring.jpa.properties.hibernate.default_schema: ticket-system
+#spring.datasource.schema: ticket-system
+#spring.jpa.properties.hibernate.default_schema: ticket-system
 
 spring.datasource.driverClassName: org.postgresql.Driver
-spring.datasource.url: jdbc:postgresql://192.168.51.24:5432/postgres
+spring.datasource.url: jdbc:postgresql://training-pc:9001/postgres
 spring.jpa.database-platform: org.hibernate.dialect.PostgreSQLDialect
 spring.datasource.username: postgres
-spring.datasource.password: bondstone
+spring.datasource.password: hackamania2017
 spring.jpa.show-sql: true
 
 spring.aop.auto: true
