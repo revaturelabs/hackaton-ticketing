@@ -1,5 +1,7 @@
 package com.hack.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,11 +15,15 @@ public class RoleService {
 	private RoleRepository roleRepo;
 	
 	public Role getRole(String name){
-		return roleRepo.getRoleByName(name);
+		return roleRepo.findRoleByName(name);
 	}
 	
 	public Role create (Role role){
 		return roleRepo.save(role);
+	}
+	
+	public List<Role> getAll(){
+		return roleRepo.findAll();
 	}
 	
 	
