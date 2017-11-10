@@ -15,7 +15,11 @@ public class RoleService {
 	private RoleRepository roleRepo;
 	
 	public Role getRole(String name){
-		return roleRepo.findRoleByName(name);
+		return roleRepo.findByName(name);
+	}
+	
+	public Role getById(int id){
+		return roleRepo.findById(id);
 	}
 	
 	public Role create (Role role){
@@ -26,5 +30,8 @@ public class RoleService {
 		return roleRepo.findAll();
 	}
 	
+	public void removeRole(Role role){
+		roleRepo.delete(role);
+	}
 	
 }
