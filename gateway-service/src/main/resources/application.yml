@@ -1,0 +1,35 @@
+#gateway
+info:
+  component: Edge Server
+  
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    sensitive: false
+
+zuul:
+  prefix: /api
+  routes:
+    account: 
+      path: /user/**
+      serviceId: user-service
+    customer: 
+      path: /ticket/**
+      serviceId: ticket-service          
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8762/eureka/
+    registerWithEureka: false
+      
+server:
+  port: 8765
+
+logging:
+  level:
+    ROOT: INFO
+    org.springframework.web: DEBUG
