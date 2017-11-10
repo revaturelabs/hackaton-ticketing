@@ -1,0 +1,12 @@
+<div class="container">
+        
+    <form class="form-signin">
+    <h2 class="form-signin-heading">New Ticket</h2>
+    <label for="inputTitle" class="sr-only">Email address</label>
+    <input [(ngModel)]="ticket.title" name="title" type="text" id="inputTitle" class="form-control" placeholder="Title" required>
+    <label for="inputContent" class="sr-only">Password</label>
+    <textarea [(ngModel)]="ticket.issue" name="content" type="text" id="inputContent" class="form-control" placeholder="Question" required></textarea>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="addTicket()">Create</button>
+    </form>
+
+</div> <!-- /container -->
