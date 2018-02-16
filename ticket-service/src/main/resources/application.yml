@@ -28,7 +28,7 @@ ribbon:
 #spring.jpa.properties.hibernate.default_schema: ticket-system
 
 spring.datasource.driverClassName: org.postgresql.Driver
-spring.datasource.url: jdbc:postgresql://training-pc:9001/postgres
+spring.datasource.url: jdbc:postgresql://ec2-52-53-223-216.us-west-1.compute.amazonaws.com:9101/postgres
 spring.jpa.database-platform: org.hibernate.dialect.PostgreSQLDialect
 spring.datasource.username: postgres
 spring.datasource.password: hackamania2017

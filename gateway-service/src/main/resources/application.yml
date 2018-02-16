@@ -9,22 +9,28 @@ endpoints:
     enabled: true
   health:
     sensitive: false
+  beans:
+    sensitive: false
 
 zuul:
   prefix: /api
   routes:
-    account: 
+    user: 
       path: /user/**
       serviceId: user-service
-    customer: 
+    ticket: 
       path: /ticket/**
-      serviceId: ticket-service          
+      serviceId: ticket-service         
+      
+ribbon:
+  eureka:
+    enabled: true
 
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8762/eureka/
-    registerWithEureka: false
+    registerWithEureka: true
       
 server:
   port: 8765
@@ -33,3 +39,6 @@ logging:
   level:
     ROOT: INFO
     org.springframework.web: DEBUG
+
+endpoints.mappings.sensitive: false
+    
