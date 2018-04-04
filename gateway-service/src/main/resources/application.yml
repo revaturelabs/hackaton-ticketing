@@ -9,7 +9,7 @@ endpoints:
     enabled: true
   health:
     sensitive: false
-  beans:
+  mappings:
     sensitive: false
 
 zuul:
@@ -22,9 +22,6 @@ zuul:
       path: /ticket/**
       serviceId: ticket-service         
       
-ribbon:
-  eureka:
-    enabled: true
 
 eureka:
   client:
@@ -34,11 +31,14 @@ eureka:
       
 server:
   port: 8765
+  
+spring:
+  application:
+    name: gateway-service
 
 logging:
   level:
     ROOT: INFO
     org.springframework.web: DEBUG
 
-endpoints.mappings.sensitive: false
     

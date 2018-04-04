@@ -1,0 +1,101 @@
+version: "3"
+
+# SERVICES - DOCKER
+services:
+
+  # API - TICKET
+  api_ticket:
+    image: hackamania/ticket:0.1.0
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "7001:8081"
+    environment:
+      ENV_VAR: test
+    networks:
+      - hackatonics
+  
+  # API - USER
+  api_user:
+    image: hackamania/user:0.1.0
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "7002:8082"
+    environment:
+      ENV_VAR: test
+    networks:
+      - hackatonics
+  
+  # DATA - TICKET
+  data_ticket:
+    image: postgres:10
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    environment:
+      POSTGRES_PASSWORD: hackamania2017
+    volumes:
+      - data_ticket:/godata
+    networks:
+      - hackatonics
+  
+  # DATA - USER
+  data_ticket:
+    image: postgres:10
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    environment:
+      POSTGRES_PASSWORD: hackamania2017
+    volumes:
+      - data_user:/godata
+    networks:
+      - hackatonics
+  
+  # UI - CLIENT
+  ui_client:
+    image: hackamania/client:0.1.0
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    networks:
+      - hackatonics
+  
+  # APP - DISCOVERY
+  app_discovery:
+    image: hackamania/eureka:0.1.0
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    networks:
+      - hackatonics
+  
+  # APP - GATEWAY
+  app_gateway:
+    image: hackamania/gateway:0.1.0
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    networks:
+      - hackatonics
+
+# NETWORKS - DOCKER
+networks:
+  hackatonics:
+
+# VOLUMES - DOCKER
+volumes:
+  data_ticket:
+    external: true
+  data_user:
+    external: true

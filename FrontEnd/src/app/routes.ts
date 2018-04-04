@@ -1,63 +1,60 @@
 import { Routes } from '@angular/router';
 
-import {InterpolationComponent} from './components/interpolation/interpolation.component';
-import {EventBindingComponent} from './components/event-binding/event-binding.component';
-import {PropertyBindingComponent} from './components/property-binding/property-binding.component';
-import {PipesComponent} from './components/pipes/pipes.component';
-import {StructuralDirectiveComponent} from './components/structural-directive/structural-directive.component';
-import {TwoWayBindingComponent} from './components/two-way-binding/two-way-binding.component';
-import {ParentComponent} from './components/parent/parent.component';
-import {Child1Component} from './components/child1/child1.component';
-import {Child2Component} from './components/child2/child2.component';
 import {HttpCachedComponent} from './components/http-cached/http-cached.component';
 
 
+// our app
+import {EmployeeComponent} from './components/employee/employee.component';
+import {EmployeeTicketsComponent} from './components/employee/tickets/employee-tickets.component';
+import {NewTicketComponent} from './components/employee/new-ticket/new-ticket.component';
+import {LoginComponent} from './components/login/login.component';
+import {MentorComponent} from './components/mentor/mentor.component';
+import {AdminComponent} from './components/admin/admin.component';
+
 export const appRoutes: Routes = [
+  // our routes
   {
-    path: 'event-bind',
-    component: EventBindingComponent
+    path: 'login',
+    component: LoginComponent
   },
   {
-    path: 'http-cached',
-    component: HttpCachedComponent
-  },
-  {
-    path: 'interpolation',
-    component: InterpolationComponent
-  },
-  {
-    path: 'property-bind',
-    component: PropertyBindingComponent
-  },
-  {
-    path: 'pipes',
-    component: PipesComponent
-  },
-  {
-    path: 'parent',
-    component: ParentComponent,
+    path: 'employee',
+    component: EmployeeComponent,
     children: [
       {
-        path: 'child1',
-        component: Child1Component
+        path: 'tickets',
+        component: EmployeeTicketsComponent
       },
       {
-        path: 'child2',
-        component: Child2Component
+        path: 'new-ticket',
+        component: NewTicketComponent
+      },
+      {
+        path: '',
+        component: EmployeeTicketsComponent
+      },
+      {
+        path: '**',
+        redirectTo: 'tickets',
+        pathMatch: 'full'
       }
     ]
   },
   {
-    path: 'structural-directives',
-    component: StructuralDirectiveComponent
+    path:'mentor',
+    component: MentorComponent
   },
   {
-    path: 'two-way-binding',
-    component: TwoWayBindingComponent
+    path:'admin',
+    component: AdminComponent
   },
   { path: '',
-    redirectTo: '/interpolation',
+    redirectTo: '/employee',
     pathMatch: 'full'
   },
-  { path: '**', component: InterpolationComponent }
+  {
+    path: '**',
+    redirectTo: '/employee',
+    pathMatch: 'full'
+  }
 ];

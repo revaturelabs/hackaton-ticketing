@@ -1,0 +1,6 @@
+FROM maven:3.5
+
+WORKDIR /app
+COPY ./eureka /app
+
+CMD [ "java", "app" ]

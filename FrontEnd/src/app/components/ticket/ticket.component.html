@@ -1,0 +1,18 @@
+<div class="card">
+  <div class="card-header" (click)="toggleDisplay()">
+    <div>{{ ticket.title }}</div>
+  </div>
+  <div class="card-body" *ngIf="display">
+    <div class="ticket-issue">
+      <div class="card-text"> {{ ticket.issue }}</div>
+      <i class="fa fa-comment pointer" aria-hidden="true" (click)="toggleComments()"></i>
+    </div>
+    <div class="ticket-comments" *ngIf="showComments">
+      <div *ngFor="let comment of ticket.comments"> {{comment.comment}} </div>
+      <form (keydown)="$event.keyCode == 13 ? addComment() : 'nothing'">
+          <input type="text" name="newComment" class="form-control" [(ngModel)]="newComment.comment" placeholder="new comment" required>
+          <button class="btn btn-primary" (click)="addComment()">Add comment</button>
+      </form>
+    </div>
+  </div>
+</div>

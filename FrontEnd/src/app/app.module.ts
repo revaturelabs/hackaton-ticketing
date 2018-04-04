@@ -10,21 +10,20 @@ import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 
 // components
 import {AppComponent} from './app.component';
-import {NavComponent} from './components/nav/nav.component';
-import {InterpolationComponent} from './components/interpolation/interpolation.component';
-import {EventBindingComponent} from './components/event-binding/event-binding.component';
-import {PropertyBindingComponent} from './components/property-binding/property-binding.component';
-import {FlashcardComponent} from './components/flashcard/flashcard.component';
-import {PipesComponent} from './components/pipes/pipes.component';
-import {StructuralDirectiveComponent} from './components/structural-directive/structural-directive.component';
-import {TwoWayBindingComponent} from './components/two-way-binding/two-way-binding.component';
-import {ParentComponent} from './components/parent/parent.component';
-import {Child1Component} from './components/child1/child1.component';
-import {Child2Component} from './components/child2/child2.component';
-import {HttpCachedComponent} from './components/http-cached/http-cached.component';
+
+// our app
+import {EmployeeNavComponent} from './components/employee/nav/employee-nav.component';
+import {EmployeeComponent} from './components/employee/employee.component';
+import {EmployeeTicketsComponent} from './components/employee/tickets/employee-tickets.component';
+import {NewTicketComponent} from './components/employee/new-ticket/new-ticket.component';
+import {TicketComponent} from './components/ticket/ticket.component';
+import {LoginComponent} from './components/login/login.component';
+import {MentorComponent} from './components/mentor/mentor.component';
+import {AdminComponent} from './components/admin/admin.component';
 
 // services
 import {FlashcardService} from './services/flashcard.service';
+import {TicketService} from './services/ticket.service';
 
 // pipes
 import {CompletedPipe} from './pipes/completed.pipe';
@@ -43,25 +42,24 @@ import {appRoutes} from './routes';
   declarations: [
     // components
     AppComponent,
-    NavComponent,
-    InterpolationComponent,
-    EventBindingComponent,
-    PropertyBindingComponent,
-    FlashcardComponent,
-    PipesComponent,
-    StructuralDirectiveComponent,
-    TwoWayBindingComponent,
-    ParentComponent,
-    Child1Component,
-    Child2Component,
-    HttpCachedComponent,
 
+    // our app
+    EmployeeNavComponent,
+    EmployeeComponent,
+    EmployeeTicketsComponent,
+    NewTicketComponent,
+    TicketComponent,
+    LoginComponent,
+    MentorComponent,
+    AdminComponent,
+    
     // pipes
     CompletedPipe,
    ],
   providers: [
      // services
      FlashcardService,
+     TicketService,
    ],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,16 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <a class="navbar-brand" routerLink="/">Home</a>
+  <button  class="navbar-toggler" type="button" (click)="toggleCollapse()">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="navbar-collapse" [ngClass]="(hideNav)?'collapse':''">
+    <ul class="navbar-nav mr-auto">
+        <a class="nav-link" routerLink="tickets" >My Tickets</a>
+        <a class="nav-link" routerLink="new-ticket" >New Ticket</a>
+    </ul>
+    <form class="form-inline my-2 my-md-0">
+      <input class="form-control" type="text" placeholder="Search">
+    </form>
+  </div>
+</nav>
