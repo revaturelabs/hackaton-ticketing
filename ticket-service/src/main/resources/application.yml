@@ -1,5 +1,5 @@
 server:  
-  port: ${PORT:3315}
+  port: 2223
 
 spring:  
   application:
@@ -18,7 +18,3 @@ eureka:
   instance:
     leaseRenewalIntervalInSeconds: 1
     leaseExpirationDurationInSeconds: 2
-      
-ribbon:
-  eureka:
-    enabled: true
