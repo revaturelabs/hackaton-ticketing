@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.hack.beans.Ticket;
 import com.hack.ticket.dao.TicketDao;
-import com.hack.ticket.model.Ticket;
 
 @RestController
 public class Api {
@@ -17,7 +17,7 @@ public class Api {
 	@Autowired
 	TicketDao ticketDao;
 	
-	@RequestMapping(value="/ticket/test", method=RequestMethod.GET)
+	@RequestMapping(value="/test", method=RequestMethod.GET)
 	public String testThings(){
 		return "Eureka!";
 	}

@@ -1,4 +1,4 @@
-package com.hack.ticket.model;
+package com.hack.beans;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

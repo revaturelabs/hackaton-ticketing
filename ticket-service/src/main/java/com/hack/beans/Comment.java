@@ -1,12 +1,15 @@
-package com.hack.ticket.model;
+package com.hack.beans;
 
 import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.context.annotation.Scope;
@@ -23,11 +26,12 @@ public class Comment implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Comment(int id, String text, int user) {
+	public Comment(int id, String text, int user, int ticket) {
 		super();
 		this.id = id;
 		this.text = text;
 		this.user = user;
+		this.ticket = ticket;
 	}
 
 	@Id
@@ -40,6 +44,10 @@ public class Comment implements Serializable {
 	
 	@Column(name="USER_ID")
 	private int user;
+	
+	@JoinColumn(name="TICKET_ID")
+	@ManyToOne(fetch=FetchType.EAGER)
+	private Ticket ticket;
 
 	public int getId() {
 		return id;

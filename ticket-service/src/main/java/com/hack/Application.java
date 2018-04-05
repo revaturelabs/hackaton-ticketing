@@ -1,10 +1,10 @@
-package com.hack.ticket;
+package com.hack;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
-import com.hack.ticket.Application;
+import com.hack.Application;
 
 @SpringBootApplication
 @EnableDiscoveryClient
